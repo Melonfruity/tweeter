@@ -1,0 +1,28 @@
+header {
+  height: 400px;
+  width: 100%;
+  background-image: url(/images/background.png);
+  position: relative;
+  top: 120px;
+}
+
+#profileImage {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#profileName {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

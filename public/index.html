@@ -7,23 +7,69 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
+    <!-- External Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="styles/responsive.css" type="text/css" />
 
     <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-  </head>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <span id="new-tweet-toggle"><p><b>New</b> Tweet</p></span>
     </nav>
 
+    <header>
+      <div id='profileImage'>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div id='profileName'>
+          <h2>Your Name</h2>
+      </div>
+    </header>
+    
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      
+      <section id='error-section'>
+        <img src="images/icons/error-24px.svg">
+        <p id="error-message"></p>
+        <img src="images/icons/error-24px.svg">
+      </section>
+
+      <section id="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form id='tweet-form' action="/tweets/" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <div id="submit-tweet">
+            <input id="tweet-input" type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
+        </form>
+      </section>
+
+      <div id='tweets-container'>
+    
+      </div>  
+    </main>
+
+    <button id="myBtn" title="Go to top">Top</button>
+
   </body>
+    
 </html>
