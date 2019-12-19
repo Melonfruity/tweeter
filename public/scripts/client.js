@@ -46,7 +46,35 @@ const createTweetElement = (tweet) => {
   */
   
   // footer 
+  let $daysAgo = $('<div>').text(getDaysAgo(tweet.created_at)).addClass('days-ago');
+  let $icons = $('<div>').addClass('flag-share-like');
+  let $flag = $('<img>').attr('src',"/images/icons/flag-24px.svg");
+  let $share = $('<img>').attr('src',"/images/icons/share-24px.svg");
+  let $favorite = $('<img>').attr('src',"/images/icons/favorite-24px.svg");
+  
+  // append footer elements
+  $icons
+    .append($flag)
+    .append($share)
+    .append($favorite);
 
+  $footer
+    .append($daysAgo)
+    .append($icons)
+  
+  // append all
+  $tweet
+    .append($header)
+    .append($content)
+    .append($footer);
+
+  return $tweet;
+}
+
+// adds the tweets to the tweets container
+const renderTweets = (container, tweets) => {
+  tweets.forEach(tweet => container.prepend(createTweetElement(tweet)));
+}
 
 // makes a get request to the api to retrieve the tweets
 const loadTweets = (container) => {
@@ -67,12 +95,43 @@ const loadTweets = (container) => {
 
     const $errorSection = $('#error-section');
     const $tweetsContainer = $('#tweets-container');
+    const newTweetForm = document.querySelector('#tweet-form');
     const $error = $('#error-message');
 
     // Navbar slide listener
     $('#new-tweet-toggle').click(function(){
       $("#new-tweet").slideToggle("slow");
     });
+
+
+    //Get the button:
+    const $mybutton = $("#myBtn");
+    
+    // calls the topFunc when button is clicked
+    $mybutton.click(function(){
+      topFunction();
+    })
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+      scrollFunction()
+    };
+
+    // reads when the user is scrolling and shows the topbutton if they are
+    function scrollFunction() {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        $mybutton.css('display','block');
+      } else {
+        $mybutton.css('display','none');
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      let newTweetFormPos = newTweetForm.getBoundingClientRect().bottom;
+      document.body.scrollTop = newTweetFormPos; // For Safari
+      document.documentElement.scrollTop = newTweetFormPos; // For Chrome, Firefox, IE and Opera
+    }
 
     // Loads in and renders the initial tweets
     loadTweets($tweetsContainer)
