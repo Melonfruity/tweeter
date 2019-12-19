@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
   .tweet {
-    width: 95%;
+    width: 100%;
   }
   #error-section {
     width: 100%;
@@ -11,8 +11,25 @@
 }
 
 @media (min-width: 1024px) {
-  .container {
+  body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-items: right;
   }
-
+  .container {
+    margin: 2em;
+    width: 60vw;
+  }
+  header {
+    margin: 1em;
+    margin-left: 2em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    width: 30vw;
+  }
+  .tweet {
+    width: 95%;
+  }
 }
 

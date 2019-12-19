@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// gets the days ago from the time the tweets are retrieved from the api
 const getDaysAgo = (time) => {
   let secondsAgo = new Date() - time;
   return `${Math.floor(secondsAgo / 86400000)} days ago`;
@@ -21,6 +22,7 @@ const createTweetElement = (tweet) => {
   let $name = $('<div>').text(`${tweet.user.name}`).addClass('name');
   let $handle = $('<div>').text(`${tweet.user.handle}`).addClass('handle')
   
+  // append header elements
   $userInfo
     .append($profilePicture)
     .append($name);
@@ -50,6 +52,7 @@ const createTweetElement = (tweet) => {
   let $share = $('<img>').attr('src',"/images/icons/share-24px.svg");
   let $favorite = $('<img>').attr('src',"/images/icons/favorite-24px.svg");
   
+  // append footer elements
   $icons
     .append($flag)
     .append($share)
@@ -68,10 +71,12 @@ const createTweetElement = (tweet) => {
   return $tweet;
 }
 
+// adds the tweets to the tweets container
 const renderTweets = (container, tweets) => {
   tweets.forEach(tweet => container.prepend(createTweetElement(tweet)));
 }
 
+// makes a get request to the api to retrieve the tweets
 const loadTweets = (container) => {
   // return tweets
   $.ajax('http://localhost:8080/tweets/', { method: 'GET' })
@@ -80,6 +85,7 @@ const loadTweets = (container) => {
   });;
 }
 
+// Jquery ready
 (function($, window, document) {
 
   // The $ is now locally scoped 
@@ -89,12 +95,15 @@ const loadTweets = (container) => {
 
     const $errorSection = $('#error-section');
     const $tweetsContainer = $('#tweets-container');
+    const newTweetForm = document.querySelector('#tweet-form');
+    const $error = $('#error-message');
 
     // Navbar slide listener
     $('#new-tweet-toggle').click(function(){
       $("#new-tweet").slideToggle("slow");
     });
 
+    // hides the error section when anywhere on the window is click
     $(window).click(function(){
       $errorSection.css('display', 'none');
     })
@@ -102,6 +111,7 @@ const loadTweets = (container) => {
     //Get the button:
     const $mybutton = $("#myBtn");
     
+    // calls the topFunc when button is clicked
     $mybutton.click(function(){
       topFunction();
     })
@@ -111,6 +121,7 @@ const loadTweets = (container) => {
       scrollFunction()
     };
 
+    // reads when the user is scrolling and shows the topbutton if they are
     function scrollFunction() {
       if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         $mybutton.css('display','block');
@@ -121,28 +132,43 @@ const loadTweets = (container) => {
 
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
-      document.body.scrollTop = 400; // For Safari
-      document.documentElement.scrollTop = 400; // For Chrome, Firefox, IE and Opera
+      let newTweetFormPos = newTweetForm.getBoundingClientRect().bottom;
+      document.body.scrollTop = newTweetFormPos; // For Safari
+      document.documentElement.scrollTop = newTweetFormPos; // For Chrome, Firefox, IE and Opera
     }
 
-    // Loads in and renders the tweets
+    // Loads in and renders the initial tweets
     loadTweets($tweetsContainer)
 
+    // submit posts to the api
     $("#tweet-form").submit(function( event ) {
+      
+      // get the character count
       const textAreaLength = event.target.text.value.length;
+
       if (textAreaLength <= 0 || textAreaLength > 140) {
+        
+        // display the error if there is one
         $errorSection.css('display', 'flex');
-        const $error = $('#error-message');
         (textAreaLength > 140) ? $error.text(`Form too long`) : $error.text(`Form too short`);
+      
       } else {
+        
+        // serialize the data to be sent
         const tweet = $(this).serialize();
+        
+        // get rid of the sent content
+        this.text.value = ''
+        
+        // post the tweet to the api
         $.post('http://localhost:8080/tweets/', tweet,
           function(){
-            // $tweetsContainer.empty();
-            
-            loadTweets($tweetsContainer)
+            $tweetsContainer.empty();
+            loadTweets($tweetsContainer);
           });
       }
+    
+      // prevents the entire page to render 
       event.preventDefault();
     });
 

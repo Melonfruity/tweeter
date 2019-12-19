@@ -1,4 +1,4 @@
-.new-tweet {
+#new-tweet {
   width: 100%;
 }
 
@@ -49,7 +49,7 @@ textarea:focus {
   display: none;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  transition: 3s;
 }
 
 #error-message p{
