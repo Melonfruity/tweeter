@@ -101,6 +101,7 @@ const loadTweets = (container) => {
     // Navbar slide listener
     $('#new-tweet-toggle').click(function(){
       $("#new-tweet").slideToggle("slow");
+      $('textarea').focus();
     });
 
     // hides the error section when anywhere on the window is click
