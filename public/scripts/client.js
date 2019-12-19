@@ -93,7 +93,7 @@ const loadTweets = (container) => {
   // Listen for the jQuery ready event on the document
   $(function() {
 
-    const $errorSection = $('#error-section');
+    const $errorSection = $('#error-section')
     const $tweetsContainer = $('#tweets-container');
     const newTweetForm = document.querySelector('#tweet-form');
     const $error = $('#error-message');
@@ -149,8 +149,8 @@ const loadTweets = (container) => {
       if (textAreaLength <= 0 || textAreaLength > 140) {
         
         // display the error if there is one
-        $errorSection.css('display', 'flex');
-        (textAreaLength > 140) ? $error.text(`Form too long`) : $error.text(`Form too short`);
+        $errorSection.slideToggle("slow");
+        (textAreaLength > 140) ? $error.text(`Error: Your tweet is too long!`) : $error.text(`Error: Your tweet is too short!`);
       
       } else {
         

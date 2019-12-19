@@ -44,9 +44,14 @@ textarea:focus {
 }
 
 #error-section {
+  width: 100%;
+  display: none;
+}
+
+#error-box {
   margin-top: 10px;
   border: 5px solid red;
-  display: none;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   transition: 3s;
