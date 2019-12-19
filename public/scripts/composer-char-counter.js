@@ -15,8 +15,6 @@
       
       if (count <= maxlength) {
         $(counter).text(`${count}`);
-      } else {
-        $(counter).text(`${counter}`);
       }
     });
 

@@ -157,8 +157,9 @@ const loadTweets = (container) => {
         // serialize the data to be sent
         const tweet = $(this).serialize();
         
-        // get rid of the sent content
+        // get rid of the sent content and reset counter
         this.text.value = ''
+        $('.counter').text('140');
         
         // post the tweet to the api
         $.post('http://localhost:8080/tweets/', tweet,
