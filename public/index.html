@@ -42,6 +42,31 @@
           <h2>Your Name</h2>
       </div>
     </header>
+    
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      
+      <section id='error-section'>
+        <img src="images/icons/error-24px.svg">
+        <p id="error-message"></p>
+        <img src="images/icons/error-24px.svg">
+      </section>  
+      <section id="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form id='tweet-form' action="/tweets/" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <div id="submit-tweet">
+            <input id="tweet-input" type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
+        </form>
+      </section>
+
+      <div id='tweets-container'>
+    
+      </div>  
+    </main>
+
 
   </body>
     
