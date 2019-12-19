@@ -1,17 +1,47 @@
-# Tweeter Project
+# Tweeter
 
-Tweeter is a simple, single-page Twitter clone.
+A simple tweeter clone that works with a local database. The tweets can be viewed by anyone with access to the same API endpoint.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## Installation
 
-## Getting Started
+```sh
+$ npm install
+```
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+## Dependancies
+- Node.js
+- md5
+- express
+- body-parser
+- chance
+- sass (WIP)
 
-## Dependencies
+## Usage
 
-- Express
-- Node 5.10.x or above
+This application allows for users to view and add text content for the web app. The tweets will rerender whenever a new tweet is added by a user.
+
+### Limitations
+
+1. The tweet must be between 1 to 140 characters
+
+### Start with
+
+```sh
+$ npm start
+```
+or 
+```sh
+$ npm start local
+```
+
+### Accessibility
+
+The application is hosted by default on PORT 8080 on localhost.
+- http://localhost:8080/
+
+API endpoint for GET and POST
+- http://localhost:8080/tweets
+
+# Screenshots
+
+!["Screenshot of URLs page"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-default_1024.png)
