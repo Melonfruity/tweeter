@@ -97,10 +97,11 @@ const loadTweets = (container) => {
     const $tweetsContainer = $('#tweets-container');
     const newTweetForm = document.querySelector('#tweet-form');
     const $error = $('#error-message');
+    const $newTweet = $("#new-tweet");
 
     // Navbar slide listener
     $('#new-tweet-toggle').click(function(){
-      $("#new-tweet").slideToggle("slow");
+      $newTweet.slideToggle("slow");
       $('textarea').focus();
     });
 
@@ -114,6 +115,7 @@ const loadTweets = (container) => {
     
     // calls the topFunc when button is clicked
     $mybutton.click(function(){
+      $newTweet.slideDown('slow');
       topFunction();
     })
 
@@ -124,7 +126,7 @@ const loadTweets = (container) => {
 
     // reads when the user is scrolling and shows the topbutton if they are
     function scrollFunction() {
-      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+      if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
         $mybutton.css('display','block');
       } else {
         $mybutton.css('display','none');
@@ -134,8 +136,8 @@ const loadTweets = (container) => {
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
       let newTweetFormPos = newTweetForm.getBoundingClientRect().bottom;
-      document.body.scrollTop = newTweetFormPos; // For Safari
-      document.documentElement.scrollTop = newTweetFormPos; // For Chrome, Firefox, IE and Opera
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
     // Loads in and renders the initial tweets
