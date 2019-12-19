@@ -44,6 +44,8 @@ API endpoint for GET and POST
 
 # Screenshots
 
+!["Demo"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter_demo.gif)
+
 !["Tweeter <1024px"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-default_1024.png)
 
 !["Tweeter <768px"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-default_768.png)
@@ -51,5 +53,3 @@ API endpoint for GET and POST
 !["Add Tweet <768px"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-newTweet_1024.png)
 
 !["Add Tweet <768px"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-newTweet_768.png)
-
-!["Demo"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter_demo.gif)
