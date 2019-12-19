@@ -103,6 +103,10 @@ const loadTweets = (container) => {
       $("#new-tweet").slideToggle("slow");
     });
 
+    // hides the error section when anywhere on the window is click
+    $(window).click(function(){
+      $errorSection.css('display', 'none');
+    })
 
     //Get the button:
     const $mybutton = $("#myBtn");
