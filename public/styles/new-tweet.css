@@ -42,22 +42,3 @@ textarea:focus {
 #tweet-input:hover {
   box-shadow: 3px 3px green;
 }
-
-#error-section {
-  width: 100%;
-  display: none;
-}
-
-#error-box {
-  margin-top: 10px;
-  border: 5px solid red;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  transition: 3s;
-}
-
-#error-message p{
-  padding: 0;
-  margin: 0;
-}

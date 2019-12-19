@@ -1,0 +1,18 @@
+#error-section {
+  width: 100%;
+  display: none;
+}
+
+#error-box {
+  margin-top: 10px;
+  border: 5px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 3s;
+}
+
+#error-message p{
+  padding: 0;
+  margin: 0;
+}
