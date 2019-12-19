@@ -52,4 +52,4 @@ API endpoint for GET and POST
 
 !["Add Tweet <768px"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-newTweet_768.png)
 
-!["Demo"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter-demo.gif)
+!["Demo"](https://github.com/Melonfruity/tweeter/blob/master/docs/tweeter_demo.gif)
