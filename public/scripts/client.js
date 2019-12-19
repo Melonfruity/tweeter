@@ -106,7 +106,7 @@ const loadTweets = (container) => {
 
     // hides the error section when anywhere on the window is click
     $(window).click(function(){
-      $errorSection.css('display', 'none');
+      $errorSection.slideUp('slow');
     })
 
     //Get the button:
